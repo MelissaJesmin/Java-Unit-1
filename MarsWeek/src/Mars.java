@@ -21,22 +21,20 @@ public class Mars {
         }
 
         landing = landingCheck(20);
+        new GuessingGame();
     }
 
     public static boolean landingCheck(int minutesLeft) throws InterruptedException {
-        for(int minute = 0; minute <= minutesLeft; minute++) {
-            if(minute % 2 == 0) {
-                System.out.println("Right");
-            }
-            else if(minute % 3 == 0) {
-                System.out.println("Left");
-            } else if ((minute % 2 == 0) && (minute % 3 == 0) ) {
+        for (int minute = 0; minute <= minutesLeft; minute++) {
+            if (((minute % 3) == 0) && ((minute % 2) == 0)) {
                 System.out.println("Keep Center");
-            }
-            else {
+            } else if ((minute % 2) == 0) {
+                System.out.println("Right");
+            } else if ((minute % 3) == 0) {
+                System.out.println("Left");
+            } else {
                 System.out.println("Calculating");
             }
-            //slow down the console on each loop
             Thread.sleep(250);
         }
         System.out.println("Landed");
@@ -44,5 +42,4 @@ public class Mars {
     }
 }
 
-//0.75 meals a day
-// 2 days landing process
+
